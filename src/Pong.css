@@ -1,0 +1,44 @@
+.pong {
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  /* Restrict the width to 80% of the parent container */
+  max-width: 600px;
+  /* Ensure the scoreboard doesn't grow too wide */
+  font-size: 40px;
+  /* Larger font size */
+  color: white;
+  /* Text color */
+  font-family: Arial, sans-serif;
+  position: absolute;
+  /* Positioned at the bottom */
+  bottom: 20px;
+  /* Adjust distance from the bottom */
+  left: 50%;
+  /* Center the scoreboard horizontally */
+  transform: translateX(-50%);
+  /* Adjust to center it exactly */
+  padding: 0 30px;
+  /* Adjust padding if necessary */
+  box-sizing: border-box;
+  /* Ensure padding doesn't affect width */
+}
+
+
+
+.scoreboard div {
+  width: 100px;
+  text-align: center;
+}
+
+
+canvas {
+  margin: 20px auto;
+  border: 2px solid white;
+}

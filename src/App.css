@@ -1,9 +1,105 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Reset some basic styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
+
+/* Dark theme colors */
+:root {
+    --bg-color: #121212;
+    --primary-color: #1e88e5;
+    --secondary-color: #d32f2f;
+    --text-color: #e0e0e0;
+    --button-hover: #333333;
+    --cell-bg: #1f1f1f;
+    --cell-hover: #444444;
+}
+
+/* App container */
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+}
+
+/* Navigation links */
+nav {
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+}
+
+/* Buttons */
+.button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: var(--button-hover);
+}
+
+button[disabled] {
+    background-color: #555555;
+    cursor: not-allowed;
+}
+
+/* Game boards */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background-color: var(--cell-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+}
+
+.cell:hover {
+    background-color: var(--cell-hover);
+}
+
+.status, .stats {
+    margin: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 
 .logo {
   height: 6em;
@@ -60,4 +156,113 @@
 .button:active {
   background-color: white; /* Background color on click */
   border-color: lime
+}
+/* Navigation bar styling */
+/* Navigation bar styling */
+nav {
+    position: sticky; /* Stick to the top */
+    top: 0; /* Position at the very top */
+    z-index: 1000; /* Ensure it stays above other elements */
+    background-color: var(--cell-bg);
+    padding: 15px 20px;
+    border-radius: 0 0 8px 8px; /* Rounded corners only at the bottom */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Navigation links */
+nav a {
+    margin: 0 20px;
+    padding: 8px 15px;
+    background-color: var(--cell-bg);
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    background-color: var(--cell-hover);
+    transform: scale(1.1);
+}
+
+/* App container improvements */
+.App {
+    padding: 20px;
+}
+
+/* Game title styling */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+/* Restart button styling */
+button.restart {
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 1.1em;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.restart:hover {
+    background-color: #b71c1c;
+    transform: scale(1.05);
+}
+
+/* Status container styling */
+.status {
+    background-color: var(--nav-bg);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 300px;
+    text-align: center;
+    font-size: 1.2em;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Add subtle animations */
+.cell {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Make links and buttons keyboard-accessible */
+nav a:focus, .button:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .board {
+        grid-template-columns: repeat(3, 80px);
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 20px;
+    }
+
+    nav a {
+        font-size: 16px;
+        margin: 0 10px;
+    }
 }
